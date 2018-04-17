@@ -1,0 +1,7 @@
+1, 正则匹配
+    http://www.cnblogs.com/deerchao/archive/2006/08/24/zhengzhe30fengzhongjiaocheng.html
+2, 跨域
+	https://zhuanlan.zhihu.com/p/25778815?group_id=825753774160252928
+3, bind, apply, call
+	https://blog.csdn.net/u014267183/article/details/52610600
+	https://blog.csdn.net/A_dangdang/article/details/50986168

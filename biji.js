@@ -73,6 +73,7 @@ shell排序 加了step的插入排序。分别以索引数为0,1,......step-1的
 const {
     floor
 } = Math;
+
 //这个和插入排序相同，只不过加了step
 Array.prototype.shellInsertSort = function (startIndex, step) {
     let i, j;
@@ -84,6 +85,7 @@ Array.prototype.shellInsertSort = function (startIndex, step) {
         this[j + step] = val;
     }
 };
+
 Array.prototype.shellSort = function () {
     let i, step;
     for (step = floor(this.length / 2); step > 0; step = floor(step / 2)) {
@@ -92,6 +94,7 @@ Array.prototype.shellSort = function () {
         }
     }
 };
+
 let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
 arr.shellSort(true);
 console.log(arr);
@@ -116,6 +119,7 @@ function merge(arr1, arr2, ) {
     }
     return i < arr1.length ? arr.concat(arr1.slice(i)) : arr.concat(arr2.slice(j))
 }
+
 Array.prototype.mergeSort = function () {
     let groupSize, i, secondPartSize, firstPart, secondPart, totalSize;
     //最初合并时，每组的大小仅为1，然后将组的大小乘以2。
@@ -131,6 +135,7 @@ Array.prototype.mergeSort = function () {
         }
     }
 };
+
 let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
 arr.mergeSort();
 console.log(arr);
@@ -154,6 +159,7 @@ function merge(arr1, arr2, ) {
     }
     return i < arr1.length ? arr.concat(arr1.slice(i)) : arr.concat(arr2.slice(j))
 }
+
 Array.prototype.mergeSort = function () {
     let groupSize, i, secondPartSize, firstPart, secondPart, totalSize;
     //最初合并时，每组的大小仅为1，然后将组的大小乘以2。
@@ -169,6 +175,7 @@ Array.prototype.mergeSort = function () {
         }
     }
 };
+
 let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
 arr.mergeSort();
 console.log(arr);
@@ -205,6 +212,7 @@ function getSortedArrList(arr) {
     sortedArrList.push(childArr);
     return sortedArrList;
 }
+
 Array.prototype.naturalMergeSort = function () {
     let sortedArrList = getSortedArrList(this); //获取原本从小到大顺序的子数组
     while (sortedArrList.length > 1) { //当还有两个及以上的数组没合并完成时
@@ -220,6 +228,7 @@ Array.prototype.naturalMergeSort = function () {
     }
     this.splice(0, this.length, ...sortedArrList[0]);
 };
+
 let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
 arr.naturalMergeSort();
 console.log(arr);
@@ -287,6 +296,7 @@ function initBarrel() {
 function unique(barrel) {
     return new Set(barrel).size <= 1;
 }
+
 Array.prototype.radixSort = function () {
     let result = [];
     let figureNum = max(...this).toString().length;
@@ -313,6 +323,7 @@ function radixGroup(group, index, figureNum, result) { //输入的group是一组
         })
     }
 }
+
 let arr = [1234342, 52165, 75, 1, 356, 575, 765433212, 57994, 3535];
 arr.radixSort();
 console.log(arr);
@@ -351,9 +362,11 @@ function quickSort(arr, start, end) {
         quickSort(arr, pivot + 1, end);
     }
 }
+
 Array.prototype.quickSort = function (asc = true) {
     quickSort(this, 0, this.length - 1, asc)
 };
+
 let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
 arr.quickSort();
 console.log(arr);
@@ -417,63 +430,185 @@ function heepSort(arr) {
         [arr[0], arr[length-- - 1]] = [arr[length - 1], arr[0]];
     }
 }
+
 Array.prototype.heepSort = function () {
     heepSort(this);
 };
+
 let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
 arr.heepSort();
 console.log(arr);
 
 // ==================================================================================
+/* 计算字符串长度 */
+function chkstrlen(str) {
+    var strlen = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) > 255) {
+            strlen += 2;
+        } else {
+            strlen++;
+        }
+    }
+    return strlen;
+}
 
 // ==================================================================================
+/* js中, 类型的相互转换 */
+/*
+1, 对象<-->布尔值
+    对象: 先转换为字符串,然后字符串转换为数字,
+    布尔值: 转换为数字
+2, 对象<-->字符串
+    对象: 转为字符串
+3, 对象<-->数字
+    对象: 先转为字符串, 再转为数字
+4, 字符串<-->数字
+    字符串: 转为数字
+5, 字符串<-->布尔值
+    二者全都转为数字
+6, 布尔值<-->数字
+    布尔值: 转为数字
+
+
+比较规则:
+    对象
+      \
+       \
+        字符串   布尔值
+          \       /
+           \     /
+             数字
+
+如果不是同一类型比较:
+    对象-->字符串-->数值
+    布尔值-->数值
+
+特殊:   undefined == null    // true,  undefined和null,与其他值比较都是false
+        undefined === null   // false
+
+*/
 
 // ==================================================================================
+/* 比较两个数组是否相同 */
+function equalArrays(a, b) {
+    if (a.length != b.length) {
+        return false;
+    }
+    for (var i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 // ==================================================================================
+/* 删除数组中指定"变量"的成员 */
+Array.prototype.indexOf = function (val) {
+    for (var i = 0; i < this.length; i++) {
+        if(this[i] == val) {
+            return i;
+        }
+    }
+    return -1;
+}
+Array.prototype.remove = function(val) {
+    var index = this.indexOf(val);
+    if(index > -1) {
+        This.splice(index, 1);
+    }
+}
+
+var arr = [1, 2,333,4,5];
+arr.remove(333);
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================
+/*  */
+
 
 // ==================================================================================

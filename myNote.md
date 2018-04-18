@@ -1,16 +1,41 @@
-caller, calleeºÍarguments·Ö±ğÊÇÊ²Ã´
-²Î¿¼´ğ°¸: caller,calleeÖ®¼äµÄ¹ØÏµ¾ÍÏñÊÇemployerºÍemployeeÖ®¼äµÄ¹ØÏµ£¬¾ÍÊÇµ÷ÓÃÓë±»µ÷ÓÃµÄ¹ØÏµ£¬¶şÕß·µ»ØµÄ¶¼ÊÇº¯Êı¶ÔÏóÒıÓÃ£®argumentsÊÇº¯ÊıµÄËùÓĞ²ÎÊıÁĞ±í£¬ËüÊÇÒ»¸öÀàÊı×éµÄ±äÁ¿£®
-
-´úÂëÑİÊ¾
-
-    function parent(param1, param2, param3) {
-        child(param1, param2, param3);
+##å†’æ³¡æ’åºï¼š
+æ¯”è¾ƒç›¸é‚»çš„ä¸¤ä¸ªæ•°ï¼Œå¦‚æœå‰ä¸€ä¸ªæ•°å¤§äºåä¸€ä¸ªæ•°ï¼Œå°±å°†è¿™ä¸¤ä¸ªæ•°æ¢ä½ç½®ã€‚æ¯ä¸€æ¬¡éå†éƒ½ä¼šå°†æœ¬æ¬¡éå†æœ€å¤§çš„æ•°å†’æ³¡åˆ°æœ€åã€‚ä¸ºäº†å°†nä¸ªæ•°æ’å¥½åºï¼Œéœ€è¦n-1æ¬¡éå†ã€‚ å¦‚æœæŸæ¬¡éå†ä¸­ï¼Œæ²¡æœ‰è°ƒæ•´ä»»ä½•ä¸¤ä¸ªç›¸é‚»çš„æ•°çš„ä½ç½®å…³ç³»ï¼Œè¯´æ˜æ­¤æ—¶æ•°ç»„å·²æ’å¥½åºï¼Œå¯ä»¥ç»“æŸç¨‹åºã€‚
+```javascript
+Array.prototype.bubbleSort = function() {
+    let i, j;
+    for (i = 1; i < this.length; i ++) {
+        let changed = false;
+        for (j = 0; j < this.length; j ++) {
+            if (this[j] > this[j + 1]) {
+                [this[j], this[j + 1]] = [this[j + 1], this[j]];
+                changed = ture;
+            }
+        }
+        if (!changed) {
+            break;
+        }
     }
+}
+let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
+arr.bubbleSort();
+console.log(arr);
+```
 
-    function child() {
-        console.log(arguments); // { '0': 'mqin1', '1': 'mqin2', '2': 'mqin3' }
-        console.log(arguments.callee); // [Function: child]
-        console.log(child.caller); // [Function: parent]
+##é€‰æ‹©æ’åº:
+```javascript
+Array.prototype.selectSort = function () {
+    let i, j;
+    for (i = 1; i < this.length; i ++) {
+        let maxIndex = 0;
+        for (j = 0; j <= this.length - i; j ++) {
+            if (this[j] > this[maxIndex]) {
+                maxIndex = j;
+            }
+        }
+        [this[this.length - i], this[maxIndex]] = [this[maxIndex], this[this.length - i]];
     }
-
-    parent('mqin1', 'mqin2', 'mqin3');
+}
+let arr = [43, 21, 10, 5, 9, 15, 32, 57, 35];
+arr.selectSort();
+console.log(arr);
+```

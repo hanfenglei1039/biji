@@ -140,7 +140,186 @@ function stampToday() {
     return timestamp;
 }
 
-function
+function stampLast1Day() {
+    var from = moment().subtract(1, "days");
+    var timestamp = [];
+    timestamp.push(from.format("YYYY-MM-DD HH:00:00"));
+    for (var i = 0; i < 24; i++) {
+        timestamp.push(from.add(1, "hours").format("YYYY-MM-DD HH:00:00"));
+    }
+    return timestamp;
+}
 
+function stampLastNumDays(dayNum) {
+    var from = moment().subtract(dayNum, "days");
+    var timestamp = [];
+    timestamp.push(from.format("YYYY-MM-DD"));
+    for (var i = 0; i < dayNum; i++) {
+        timestamp.push(from.add(1, "days").format("YYYY-MM-DD"));
+    }
+    return timestamp;
+}
+
+function stampLast1Year() {
+    var from = moment().subtract(1, "years");
+    var timestamp = [];
+    timestamp.push(from.format("YYYY-MM"));
+    for (var i = 0; i < 12; i++) {
+        timestamp.push(from.add(1, "months").format("YYYY-MM"));
+    }
+    return timestamp;
+}
+
+function stampThisHour(step) {
+    var from = moment().startOf("hour");
+    var timestamp = [];
+    var count = 60 / step;
+    timestamp.push(from.format("YYYY-MM-DD HH:mm:00"));
+    for (var i = 0; i < count; i++) {
+        timestamp.push(from.add(step, "minutes").format("YYYY-MM-DD HH:mm:00"));
+    }
+    return timestamp;
+}
+
+
+function stampLast1Hour(step) {
+    var from = moment().subtract(1, "hour");
+    var timestamp = [];
+    var count = 60 / step;
+    timestamp.push(from.format("YYYY-MM-DD HH:mm:00"));
+    for (var i = 0; i < count; i++) {
+        timestamp.push(from.add(step, "minutes").format("YYYY-MM-DD HH:mm:00"));
+    }
+    return timestamp;
+}
+
+function stampBeforeDays(dayBefore, daysNum) {
+    var talBefore = dayBefore + daysNum;
+    var from = moment().subtract(talBefore, "days");
+    var timestamp = [];
+    timestamp.push(from.format("YYYY-MM-DD"));
+    for (var i = 1; i < daysNum; i++) {
+        timestamp.push(from.add(1, "days").format("YYYY-MM-DD"));
+    }
+    return timestamp;
+}
+
+function stampBeforeHours(hoursBefore, hoursNum) {
+    var talBefore = hoursBefore + hoursNum;
+    var from = moment().subtract(talBefore, "hours");
+    var timestamp = [];
+    timestamp.push(from.format("YYYY-MM-DD HH"));
+    for (var i = 1; i < hoursNum; i++) {
+        timestamp.push(from.add(1, "days").format("YYYY-MM-DD HH"));
+    }
+    return timestamp;
+}
+
+function stampYesterday() {
+    var nCurHour = (new Date()).getHours();
+    return stampBeforeHours(Number(nCurHour), 24);
+}
+
+function lastHours(hours) {
+    var from = moment().subtract(hours, "hours");
+    var timestamp = [];
+    for (var i = 0; i < hours; i++) {
+        timestamp.push(from.add(1, "hours").format("YYYY-MM-DD HH:00:00"));
+    }
+    return timestamp;
+}
+
+function lastMinutess(mins) {
+    var from = moment().subtract(mins, "minutes");
+    var timestamp = [];
+    for (var i = 0; i < mins; i++) {
+        timestamp.push(from.add(1, "minutes").format("YYYY-MM-DD HH:mms:00"));
+    }
+    return timestamp;
+}
+
+function getStamps(timeId) {
+    var times = [];
+    switch (timeId) {
+        case "thisHour": {
+            times = stampThisHour(5);
+            break;
+        }
+        case "lastHour": {
+            times = stampLast1Hour(5);
+            break;
+        }
+        case "lastDay": {
+            times = stampLast1Day();
+            break;
+        }
+        case "yesterday": {
+            times = stampYesterday();
+            break;
+        }
+        case "today": {
+            times = stampToday();
+            break;
+        }
+        case "last7Days": {
+            times = stampLastNumDays(7);
+            break;
+        }
+        case "last15Days": {
+            times = stampLastNumDays(15);
+            break;
+        }
+        case "last30Days": {
+            times = stampLastNumDays(30);
+            break;
+        }
+        case "lastYear": {
+            times = stampLast1Year();
+            break;
+        }
+        default: {
+            console.error("error");
+        }
+        return times;
+    }
+}
+
+function successV1(oData, key1, value1, key2, value2) {
+    var oResponse = {
+        result: ERR_RESULT_BIG_SUCCESS
+    };
+    if (null != oData) {
+        oResponse.message = oData;
+    }
+    if (null != key1 && null != value1) {
+        oResponse[key1] = value1;
+    }
+    if (null != key2 && null != value2) {
+        oResponse[key2] = value2;
+    }
+    return oResponse;
+}
+
+function failV1(sFileName, nLineNum, sReason, nErrorCode) {
+    var oResponse = {
+        result: ERR_RESULT_BIG_FAIL
+    };
+    if (null != sFileName || null != nLineNum || null != sReason || null != nErrorCode) {
+        oResponse.message = {};
+    }
+    if (null != sFileName) {
+        oResponse.message.errorFile = sFileName;
+    }
+    if (null != nLineNum) {
+        oResponse.message.errorNum = nLineNum;
+    }
+    if (null != sReason) {
+        oResponse.message.errorReason = sReason;
+    }
+    if (null != nErrorCode) {
+        oResponse.message.errorCode = nErrorCode;
+    }
+    return oResponse;
+}
 
 

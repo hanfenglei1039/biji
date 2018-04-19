@@ -525,8 +525,20 @@ var arr = [1, 2, 333, 4, 5];
 arr.remove(333);
 
 // ==================================================================================
-/*  */
-
+/* 常见浅拷贝 */
+function shallowCopy(obj) {
+    if (typeof obj !== 'object') {
+        return;
+    }
+    // var newObj = obj instanceof Array ? [] : {};
+    var newObj = Object.prototype.toString.call(arr) === '[Object Array]' ? [] : {};
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            newObj[key] == obj[key];
+        }
+    }
+    return newObj;
+}
 
 // ==================================================================================
 /*  */

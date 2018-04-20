@@ -5,7 +5,8 @@
 3, bind, apply, call
 	https://blog.csdn.net/u014267183/article/details/52610600
 	https://blog.csdn.net/A_dangdang/article/details/50986168
-4, typings安装
-	cnpm安装
+4, typings安装、cnpm安装
 	https://www.cnblogs.com/IPrograming/archive/2016/04/30/VsCodeTypings.html
-5,  https://www.cnblogs.com/IPrograming/p/VsCodeESLint.htmls
+5,  https://www.cnblogs.com/IPrograming/p/VsCodeESLint.html
+6，Promise讲解
+	https://www.cnblogs.com/lvdabao/p/es6-promise-1.html

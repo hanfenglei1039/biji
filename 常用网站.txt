@@ -1,12 +1,19 @@
-1, 正则匹配
+1，正则匹配
     http://www.cnblogs.com/deerchao/archive/2006/08/24/zhengzhe30fengzhongjiaocheng.html
-2, 跨域
-	https://zhuanlan.zhihu.com/p/25778815?group_id=825753774160252928
-3, bind, apply, call
-	https://blog.csdn.net/u014267183/article/details/52610600
-	https://blog.csdn.net/A_dangdang/article/details/50986168
-4, typings安装、cnpm安装
-	https://www.cnblogs.com/IPrograming/archive/2016/04/30/VsCodeTypings.html
-5,  https://www.cnblogs.com/IPrograming/p/VsCodeESLint.html
+2，跨域
+    https://zhuanlan.zhihu.com/p/25778815?group_id=825753774160252928
+3，bind、apply、call
+    https://blog.csdn.net/u014267183/article/details/52610600
+    https://blog.csdn.net/A_dangdang/article/details/50986168
+4，typings安装、cnpm安装
+    https://www.cnblogs.com/IPrograming/archive/2016/04/30/VsCodeTypings.html
+5，ESlint
+    https://www.cnblogs.com/IPrograming/p/VsCodeESLint.html
 6，Promise讲解
-	https://www.cnblogs.com/lvdabao/p/es6-promise-1.html
+    https://www.cnblogs.com/lvdabao/p/es6-promise-1.html
+7，async/await
+    https://www.cnblogs.com/kazetotori/p/6043983.html
+    async、await获取电影海报
+        http://cnodejs.org/topic/5640b80d3a6aa72c5e0030b6
+
+

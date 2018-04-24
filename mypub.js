@@ -181,7 +181,6 @@ function stampThisHour(step) {
     return timestamp;
 }
 
-
 function stampLast1Hour(step) {
     var from = moment().subtract(1, "hour");
     var timestamp = [];
@@ -322,4 +321,75 @@ function failV1(sFileName, nLineNum, sReason, nErrorCode) {
     return oResponse;
 }
 
+function judgeObjLenIsZero(jsonData) {
+    return (0 == Object.keys(jsonData).length) ? true : false;
+}
+
+function getObjLen(jsonData) {
+    return Object.keys(jsonData).length;
+}
+
+function getObjKeys(jsonData) {
+    return Object.keys(jsonData).length;
+}
+
+function getObjVals(jsonData) {
+    return Object.values(jsonData);
+}
+
+// var nowTime = new Date().myFormat("yyyy-MM-dd hh:mm:ss");
+Date.prototype.myFormat = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1,
+        "d+": this.getDate(),
+        "h+": this.getHours(),
+        "m+": this.getMinutes(),
+        "s+": this.getSeconds(),
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        "S" : this.getMilliseconds()
+    };
+
+    if (/(y+)/.test(fmt)) {
+        fmt = fmt.replace(
+            RegExp.$1,
+            (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+        );
+    }
+    for (var k in o) {
+        if (new RegExp("(" + k + ")").test(fmt)) {
+            fmt = fmt.replace(
+                RegExp.$1,
+                (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length))
+            );
+        }
+    }
+    return fmt;
+}
+
+function judgeCb (cb) {
+    return (cb && isFunction(cb));
+}
+
+function judgeParam (oBody, sParam, oReturn) {
+    if (null == oReturn || undefined == oReturn) {
+        return (oBody.hasOwnProperty(sParam) ? oBody[sParam] : null);
+    }
+    else {
+        return (oBody.hasOwnProperty(sParam) ? oBody[sParam] : oReturn);
+    }
+}
+
+function judgeMongoRtn(aData) {
+    var aTemp = isArray(aData) ? aData : [];
+    if ((0 != aTemp.length) && (isObject(aTemp[0]))) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+function getCurMillTime() {
+    return Number(+(new Date()));
+}
 

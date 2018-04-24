@@ -15,5 +15,8 @@
     https://www.cnblogs.com/kazetotori/p/6043983.html
     async、await获取电影海报
         http://cnodejs.org/topic/5640b80d3a6aa72c5e0030b6
-
+8，代码热更新
+    https://cnodejs.org/topic/5977fe1068aa87c774e5ebf2
+    通过插件实现代码热更新
+        https://www.cnblogs.com/benpaodexiaopangzi/p/5856642.html
 

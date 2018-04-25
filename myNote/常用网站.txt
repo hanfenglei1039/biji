@@ -20,3 +20,6 @@
     通过插件实现代码热更新
         https://www.cnblogs.com/benpaodexiaopangzi/p/5856642.html
     http://fex.baidu.com/blog/2015/05/nodejs-hot-swapping/
+9，搭建博客
+    https://www.zhihu.com/question/20962496
+    https://www.ezlippi.com/blog/2015/03/github-pages-blog.html

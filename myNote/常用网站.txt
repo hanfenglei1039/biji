@@ -23,3 +23,6 @@
 9，搭建博客
     https://www.zhihu.com/question/20962496
     https://www.ezlippi.com/blog/2015/03/github-pages-blog.html
+10，aliyun
+    https://dc.console.aliyun.com/next/index#/domain/list/all-domain
+    https://help.aliyun.com/knowledge_detail/39783.html?spm=5176.200122.n2.4.lB9Hsw

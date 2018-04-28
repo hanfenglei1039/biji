@@ -23,11 +23,14 @@
 9，搭建博客
     https://www.zhihu.com/question/20962496
     https://www.ezlippi.com/blog/2015/03/github-pages-blog.html
+10，https://www.jianshu.com/p/834d7cc0668d
+11，https://hexo.io/zh-cn/docs/
     https://www.jianshu.com/p/d1fdf3316fc0
     获取github.io的ip
         https://jingyan.baidu.com/article/3c343ff70fb6e60d3779632f.html
-10，aliyun
+12，aliyun
     https://dc.console.aliyun.com/next/index#/domain/list/all-domain
     https://help.aliyun.com/knowledge_detail/39783.html?spm=5176.200122.n2.4.lB9Hsw
     zhanghao:
         hanfengleigithub/hanfenglei@1039
+13，https://www.jianshu.com/p/3217ecf4a789

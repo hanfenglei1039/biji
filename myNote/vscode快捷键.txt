@@ -1,4 +1,3 @@
-用户设置：
 {
     "editor.tabCompletion": true,
     "editor.fontSize": 14,
@@ -14,8 +13,6 @@
     "editor.formatOnSave": false
 }
 
-快捷键设置：
-// 将键绑定放入此文件中以覆盖默认值
 [{
         "key": "ctrl+alt+k",
         "command": "cursorDown",

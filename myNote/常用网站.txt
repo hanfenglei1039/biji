@@ -34,3 +34,8 @@
     zhanghao:
         hanfengleigithub/hanfenglei@1039
 13，https://www.jianshu.com/p/3217ecf4a789
+14，hexo d 失败
+    https://www.cnblogs.com/xsilence/p/6001938.html
+15，hexo的next主题个性设计
+    https://www.jianshu.com/p/f054333ac9e6
+    http://theme-next.iissnan.com/theme-settings.html  官方
